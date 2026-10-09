@@ -62,6 +62,7 @@ async function userLoginController(req, res) {
 
     const { email, password } = req.body;
 
+    // select("-password") to remove - select: false, so its default
     const user = await userModel.findOne({ email }).select("+password");
 
     if (!user) {
